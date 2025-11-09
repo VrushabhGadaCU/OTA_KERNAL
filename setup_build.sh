@@ -60,7 +60,7 @@ MACHINE_FEATURES:append = " broadcom-bt-bcm43xx broadcom-wl-bcm43xx"
 # Additional packages
 IMAGE_INSTALL:append = " \
     openssh \
-    linux-firmware-bcm43430 \
+    linux-firmware-rpidistro-bcm43455 \
     wireless-regdb-static \
     crda \
     wpa-supplicant \
