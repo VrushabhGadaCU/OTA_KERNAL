@@ -21,7 +21,8 @@ DISTRO_F='DISTRO_FEATURES:append = " wifi systemd"'
 SYSTEMD_INIT='VIRTUAL-RUNTIME_init_manager = "systemd"'
 SYSTEMD_BACKFILL='DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"'
 IMAGE_F='IMAGE_FEATURES += "ssh-server-openssh"'
-IMAGE_ADD='IMAGE_INSTALL:append = " linux-firmware-rpidistro-bcm43455 wpa-supplicant kernel-modules dhcpcd iw iproute2 wpa-supplicant-config"'
+IMAGE_ADD='IMAGE_INSTALL:append = " linux-firmware-rpidistro-bcm43455 wpa-supplicant kernel-modules dhcpcd iw iproute2 packagegroup-base wpa-supplicant-config"'
+
 CONF_FILE="conf/local.conf"
 
 # --- Ensure local.conf exists ---
@@ -98,6 +99,6 @@ echo ""
 echo "To flash the image to SD card:"
 echo "  cd build/tmp/deploy/images/raspberrypi4-64/"
 echo "  bunzip2 -dkf core-image-minimal-raspberrypi4-64.wic.bz2"
-echo "  sudo dd if=core-image-minimal-raspberrypi4-64.wic of=/dev/sdX bs=4M status=progress conv=fsync"
+echo "  sudo dd if=core-image-minimal-raspberrypi4-64.wic of=/dev/sdb bs=4M status=progress conv=fsync"
 echo "  sync"
 echo "  sudo eject /dev/sdb"

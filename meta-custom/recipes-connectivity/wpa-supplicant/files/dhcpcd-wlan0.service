@@ -1,0 +1,15 @@
+[Unit]
+Description=DHCP Client for wlan0
+After=wpa_supplicant-wlan0.service
+Wants=wpa_supplicant-wlan0.service
+
+[Service]
+Type=forking
+PIDFile=/var/run/dhcpcd-wlan0.pid
+ExecStart=/usr/sbin/dhcpcd -b -q wlan0
+ExecStop=/usr/sbin/dhcpcd -k wlan0
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

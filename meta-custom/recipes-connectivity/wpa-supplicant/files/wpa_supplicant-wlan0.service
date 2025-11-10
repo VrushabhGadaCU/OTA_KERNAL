@@ -1,0 +1,14 @@
+[Unit]
+Description=WPA supplicant for wlan0
+Before=network.target
+After=sys-subsystem-net-devices-wlan0.device
+Wants=sys-subsystem-net-devices-wlan0.device
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/wpa_supplicant -c/etc/wpa_supplicant/wpa_supplicant-wlan0.conf -iwlan0 -Dnl80211,wext
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
